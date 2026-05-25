@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { MapPin, Mail, Phone } from "lucide-react";
 
 const details = [
-  { icon: Mail, label: "Email", value: "hello@magicline.com" },
-  { icon: Phone, label: "Phone", value: "+1 (212) 555-0190" },
+  { icon: Mail, label: "Email", value: "contact@magiclineeng.com" },
+  { icon: Phone, label: "Phone", value: "+1 (435) 341-0647" },
   { icon: MapPin, label: "Studio", value: "340 W 28th St, New York, NY" },
 ];
 
