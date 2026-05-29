@@ -18,7 +18,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "James Anderson",
     role: "Architect",
-    image: "/team/james-anderson.jpg",
+    image: "/team/james-anderson.png",
     location: "Multi-State",
     licenses: ["Multi-State Licensed Architect"],
     bio: "James Anderson is a multi-licensed architect specializing in residential, commercial, and mixed-use developments. With extensive experience in design, planning, permitting, and construction administration, he helps clients successfully navigate projects across multiple states and jurisdictions. His work is defined by thoughtful design, technical expertise, and a commitment to creating spaces that are functional, sustainable, and enduring.",
@@ -26,7 +26,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Frank Gonani",
     role: "Civil Engineer",
-    image: "/team/frank-gonani.jpg",
+    image: "/team/frank-gonani.png",
     location: "Surprise, AZ",
     licenses: [
       "Civil Engineer — AZ, CO, FL, NM, TX, UT, WY",
@@ -40,7 +40,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Sarah Aher",
     role: "Building Designer",
-    image: "/team/sarah-aher.jpg",
+    image: "/team/sarah-aher.png",
     location: "",
     licenses: ["Interior Design Specialist", "Building Designer"],
     bio: "Sarah Aher is an experienced designer specializing in commercial and residential interior design, building design, and project development. She is known for creating functional, elegant, and client-focused spaces that balance creativity, comfort, and efficiency. Her experience includes residential homes, commercial interiors, renovations, and custom design projects, with a strong emphasis on collaboration, detail, and thoughtful design solutions.",
@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Saady Amin",
     role: "Structural Engineer",
-    image: "/team/saady-amin.jpg",
+    image: "/team/saady-amin.png",
     location: "Sylvania, OH",
     licenses: [
       "Structural Engineer — AL, CO, DC, DE, FL, GA, ID, IN, KS, KY, LA, MA, MD, MI, MN, MO, NC, NE, NJ, NM, NV, NY, OH, OK, OR, PA, SC, SD, TN, TX, UT, VA, WA, WI, WY",
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Sean Green",
     role: "Professional Engineer",
-    image: "/team/sean-green.jpg",
+    image: "/team/sean-green.png",
     location: "Barberton, OH",
     licenses: [
       "Civil Engineer — DC, FL, GA, IA, KY, MD, MI, MO, NC, NE, OH, SC, VA, WI",
@@ -68,7 +68,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Thomas Johnson",
     role: "Professional Engineer",
-    image: "/team/thomas-johnson.jpg",
+    image: "/team/thomas-johnson.png",
     location: "Multi-State",
     licenses: ["Multi-State Licensed Professional Engineer"],
     bio: "Thomas Johnson is a multi-state licensed professional engineer with extensive experience in residential and commercial building design, engineering coordination, and municipal approval processes. He provides code-compliant engineering solutions for a variety of project types and works closely with project teams to support permitting, construction documentation, and successful project execution across multiple jurisdictions.",
@@ -255,7 +255,7 @@ export default function Team() {
         >
           {[...teamMembers, ...teamMembers].map((member, i) => {
             const isLcp =
-              member.image === "/team/james-anderson.jpg" && i === 0;
+              member.image === "/team/james-anderson.png" && i === 0;
 
             return (
               <motion.div
@@ -278,7 +278,7 @@ export default function Team() {
                     fill
                     loading={isLcp ? "eager" : "lazy"}
                     priority={isLcp}
-                    className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-top rounded-2xl transition-transform duration-700 group-hover:scale-105"
                     sizes="260px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -325,13 +325,13 @@ export default function Team() {
                 <X size={20} />
               </button>
 
-              <div className="relative w-full md:w-[280px] h-[300px] md:h-auto flex-shrink-0 overflow-hidden md:rounded-l-2xl">
+              <div className="relative w-full md:w-[300px] h-[min(50vh,420px)] md:h-[min(85vh,640px)] flex-shrink-0 overflow-hidden bg-[#111] flex items-center justify-center md:rounded-l-2xl">
                 <Image
                   src={selected.image}
                   alt={selected.name}
                   fill
-                  className="object-cover rounded-t-2xl md:rounded-t-none md:rounded-l-2xl"
-                  sizes="280px"
+                  className="object-contain rounded-t-2xl md:rounded-t-none md:rounded-l-2xl"
+                  sizes="300px"
                 />
               </div>
 
