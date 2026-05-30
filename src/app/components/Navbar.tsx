@@ -2,22 +2,33 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export default function Navbar() {
+const navLinks = [
+  { label: "Work", href: "/#work" },
+  { label: "Project", href: "/project" },
+  { label: "About", href: "/#about" },
+  { label: "Team", href: "/#team" },
+  { label: "Contact", href: "/#contact" },
+];
+
+export default function Navbar({ forceScrolled = false }: { forceScrolled?: boolean }) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const isSubpage = pathname !== "/";
+  const useLightNav = forceScrolled || isSubpage || scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const navLinks = ["Work", "About", "Team", "Contact"];
+  }, [pathname]);
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-16 transition-all duration-500 ${
-        scrolled
+        useLightNav
           ? "py-4 bg-[#f5f4f0]/95 backdrop-blur-md border-b border-black/8"
           : "py-6"
       }`}
@@ -25,22 +36,28 @@ export default function Navbar() {
       <Link
         href="/"
         className={`text-xs tracking-[0.25em] uppercase font-normal transition-colors duration-400 ${
-          scrolled ? "text-[#0d0d0d]" : "text-[#f5f4f0]"
+          useLightNav ? "text-[#0d0d0d]" : "text-[#f5f4f0]"
         }`}
       >
         Magic Line
       </Link>
       <ul className="flex gap-10 list-none">
         {navLinks.map((link) => (
-          <li key={link}>
-            <a
-              href={`#${link.toLowerCase()}`}
+          <li key={link.label}>
+            <Link
+              href={link.href}
               className={`text-[0.75rem] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#c8a96e] ${
-                scrolled ? "text-[#0d0d0d]" : "text-[#f5f4f0]/85"
+                useLightNav ? "text-[#0d0d0d]" : "text-[#f5f4f0]/85"
+              } ${
+                link.href === "/project" && pathname.startsWith("/project")
+                  ? "text-[#c8a96e]"
+                  : pathname === link.href
+                    ? "text-[#c8a96e]"
+                    : ""
               }`}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>
