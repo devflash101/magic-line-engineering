@@ -19,7 +19,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="px-16 py-28 bg-[#f5f4f0]">
+    <section id="contact" className="px-16 py-28 bg-[#161616] text-[#f5f4f0]">
       <div className="grid grid-cols-2 gap-24 items-start">
         {/* Left */}
         <motion.div
@@ -74,14 +74,14 @@ export default function Contact() {
               type={field.type}
               placeholder={field.placeholder}
               required={field.required}
-              className="bg-transparent border-b border-black/20 py-3 text-sm font-light placeholder:text-[#888] placeholder:text-[0.85rem] outline-none focus:border-[#c8a96e] transition-colors duration-300"
+              className="bg-transparent border-b border-white/20 py-3 text-sm font-light text-[#f5f4f0] placeholder:text-white/40 placeholder:text-[0.85rem] outline-none focus:border-[#c8a96e] transition-colors duration-300"
             />
           ))}
           <textarea
             placeholder="Tell us about your project"
             rows={5}
             required
-            className="bg-transparent border-b border-black/20 py-3 text-sm font-light placeholder:text-[#888] placeholder:text-[0.85rem] outline-none focus:border-[#c8a96e] transition-colors duration-300 resize-none"
+            className="bg-transparent border-b border-white/20 py-3 text-sm font-light text-[#f5f4f0] placeholder:text-white/40 placeholder:text-[0.85rem] outline-none focus:border-[#c8a96e] transition-colors duration-300 resize-none"
           />
           <button
             type="submit"
@@ -89,7 +89,7 @@ export default function Contact() {
             className={`self-start mt-2 px-10 py-3 text-[0.75rem] tracking-[0.2em] uppercase transition-colors duration-300 ${
               sent
                 ? "bg-[#c8a96e] text-white cursor-default"
-                : "bg-[#0d0d0d] text-[#f5f4f0] hover:bg-[#c8a96e]"
+                : "bg-[#f5f4f0] text-[#0d0d0d] hover:bg-[#c8a96e] hover:text-[#f5f4f0]"
             }`}
           >
             {sent ? "Message Sent ✓" : "Send Message"}

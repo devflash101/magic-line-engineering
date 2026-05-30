@@ -216,7 +216,7 @@ export default function Team() {
     <>
       <section
         id="team"
-        className="bg-[#0d0d0d] text-[#f5f4f0] py-28 overflow-x-hidden overflow-y-visible"
+        className="bg-[#f5f4f0] text-[#0d0d0d] py-28 overflow-x-hidden overflow-y-visible"
       >
         <div className="px-16 mb-14">
           <motion.span
