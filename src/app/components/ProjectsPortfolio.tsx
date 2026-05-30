@@ -36,8 +36,9 @@ export default function ProjectsPortfolio() {
           Our <em className="text-[#c8a96e]">Projects</em>
         </h1>
         <p className="mt-5 max-w-xl text-[#0d0d0d]/65 leading-[1.8] text-sm">
-          A selection of completed residential and commercial work — from hotels
-          and ADUs to custom homes across multiple regions.
+          A selection of completed residential, commercial, and interior design
+          work — from hotels and ADUs to offices and custom homes across multiple
+          regions.
         </p>
       </motion.div>
 
