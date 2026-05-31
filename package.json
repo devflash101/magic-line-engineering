@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "sync-icons": "node scripts/sync-icons.mjs",
+    "predev": "npm run sync-icons",
+    "prebuild": "npm run sync-icons",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

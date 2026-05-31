@@ -1,26 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
+import siteLogo from "../../../public/logo.png";
+import heroLogo from "../../../public/logo-hero.png";
 
 type LogoProps = {
   className?: string;
   priority?: boolean;
   href?: string | false;
+  variant?: "site" | "hero";
 };
 
 export default function Logo({
   className = "h-10 w-auto",
   priority = false,
   href = "/",
+  variant = "site",
 }: LogoProps) {
+  const src = variant === "hero" ? heroLogo : siteLogo;
+
   const image = (
     <Image
-      src="/logo.png"
+      src={src}
       alt="Magic Line — Architecture · Structural · MEP"
       width={640}
       height={256}
       className={className}
       priority={priority}
-      sizes="(max-width: 768px) 88vw, 640px"
+      unoptimized
+      sizes={variant === "hero" ? "(max-width: 768px) 88vw, 640px" : "(max-width: 768px) 40vw, 220px"}
     />
   );
 

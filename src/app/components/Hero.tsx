@@ -25,6 +25,7 @@ export default function Hero() {
         >
           <Logo
             href=""
+            variant="hero"
             priority
             className="w-[clamp(140px,20vw,240px)] h-auto drop-shadow-[0_4px_16px_rgba(13,13,13,0.12)]"
           />
