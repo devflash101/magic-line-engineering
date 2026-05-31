@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Work", href: "/#work" },
   { label: "Project", href: "/project" },
   { label: "About", href: "/#about" },
-  { label: "Team", href: "/#team" },
+  { label: "Team", href: "/team" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -49,7 +49,8 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
               className={`text-[0.75rem] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#c8a96e] ${
                 useLightNav ? "text-[#0d0d0d]" : "text-[#f5f4f0]/85"
               } ${
-                link.href === "/project" && pathname.startsWith("/project")
+                (link.href === "/project" && pathname.startsWith("/project")) ||
+                (link.href === "/team" && pathname.startsWith("/team"))
                   ? "text-[#c8a96e]"
                   : pathname === link.href
                     ? "text-[#c8a96e]"
