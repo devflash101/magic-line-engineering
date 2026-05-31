@@ -25,23 +25,33 @@ function LeadershipCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       onClick={onClick}
-      className={`group text-left cursor-pointer ${isCeo ? "w-full max-w-sm mx-auto" : "w-full"}`}
+      className={`group cursor-pointer ${
+        isCeo
+          ? "flex flex-col items-center w-full max-w-sm mx-auto text-center"
+          : "w-full text-left"
+      }`}
     >
       <div
         className={`relative overflow-hidden rounded-2xl mb-4 ring-1 ring-black/5 shadow-[0_12px_40px_rgba(13,13,13,0.08)] transition-all duration-500 group-hover:ring-[#c8a96e]/30 group-hover:shadow-[0_20px_50px_rgba(13,13,13,0.12)] ${
-          isCeo ? "h-[380px] md:h-[420px]" : "h-[320px] md:h-[360px]"
+          isCeo ? "h-[380px] md:h-[420px] w-full" : "h-[320px] md:h-[360px]"
         }`}
       >
         <Image
           src={member.image}
           alt={member.name}
           fill
-          className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+          className={`object-cover transition-transform duration-700 group-hover:scale-[1.03] ${
+            isCeo ? "object-center" : "object-top"
+          }`}
           sizes={isCeo ? "400px" : "360px"}
           priority={isCeo}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <span className="absolute bottom-4 left-4 text-[0.65rem] tracking-[0.2em] uppercase text-[#f5f4f0] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <span
+          className={`absolute bottom-4 text-[0.65rem] tracking-[0.2em] uppercase text-[#f5f4f0] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+            isCeo ? "left-1/2 -translate-x-1/2" : "left-4"
+          }`}
+        >
           View Profile →
         </span>
       </div>
@@ -86,7 +96,7 @@ export default function TeamPageContent() {
         </div>
 
         {/* CEO */}
-        <div className="px-6 md:px-16 max-w-6xl mx-auto mb-20">
+        <div className="px-6 md:px-16 max-w-6xl mx-auto mb-20 flex flex-col items-center">
           <p className="text-[0.65rem] tracking-[0.28em] uppercase text-[#c8a96e]/80 text-center mb-8">
             Leadership
           </p>
