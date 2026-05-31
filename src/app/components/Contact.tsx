@@ -5,9 +5,13 @@ import { motion } from "framer-motion";
 import { MapPin, Mail, Phone } from "lucide-react";
 
 const details = [
-  { icon: Mail, label: "Email", value: "contact@magiclineeng.com" },
+  { icon: Mail, label: "Email", value: "info@magiclineeng.com" },
   { icon: Phone, label: "Phone", value: "+1 (435) 341-0647" },
-  { icon: MapPin, label: "Studio", value: "340 W 28th St, New York, NY" },
+  {
+    icon: MapPin,
+    label: "Office",
+    value: "1447 Peachtree St NE\nAtlanta, GA",
+  },
 ];
 
 export default function Contact() {
@@ -48,7 +52,7 @@ export default function Contact() {
                   <span className="text-[0.68rem] tracking-[0.2em] uppercase text-[#c8a96e] block mb-1">
                     {label}
                   </span>
-                  <p className="text-sm">{value}</p>
+                  <p className="text-sm whitespace-pre-line leading-relaxed">{value}</p>
                 </div>
               </div>
             ))}
