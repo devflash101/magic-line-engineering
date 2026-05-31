@@ -40,7 +40,7 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
           : "py-6"
       }`}
     >
-      <Logo href="/" className="h-9 md:h-10 w-auto" priority />
+      <Logo href="/" variant="hero" className="h-11 md:h-12 w-auto" priority />
       <ul className="flex gap-10 list-none">
         {navLinks.map((link) => (
           <li key={link.label}>
