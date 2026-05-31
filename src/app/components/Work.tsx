@@ -6,7 +6,7 @@ const projects = [
   {
     title: "The Meridian House",
     category: "Residential",
-    img: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
     large: true,
   },
   {
