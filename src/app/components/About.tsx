@@ -10,8 +10,8 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#0d0d0d] text-[#f5f4f0] px-16 py-28">
-      <div className="grid grid-cols-2 gap-24 items-center">
+    <section id="about" className="bg-[#161616] text-[#f5f4f0] px-6 md:px-16 py-28">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
         {/* Text */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -27,12 +27,12 @@ export default function About() {
             <br />
             <em className="text-[#c8a96e]">Purpose</em>
           </h2>
-          <p className="mt-6 leading-[1.8] opacity-70 max-w-md">
+          <p className="mt-6 leading-[1.8] text-[#f5f4f0]/70 max-w-md">
             Magic Line is a full-service architecture and design studio founded on the belief
             that great buildings shape great lives. From private residences to civic landmarks,
             we bring precision, creativity, and care to every project.
           </p>
-          <p className="mt-4 leading-[1.8] opacity-70 max-w-md">
+          <p className="mt-4 leading-[1.8] text-[#f5f4f0]/70 max-w-md">
             Our team of architects, designers, and planners work collaboratively — listening
             first, then designing with intention.
           </p>
@@ -44,7 +44,7 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col gap-12 border-l border-white/10 pl-16"
+          className="flex flex-col gap-12 md:border-l md:border-white/10 md:pl-16"
         >
           {stats.map((s, i) => (
             <motion.div
@@ -57,7 +57,7 @@ export default function About() {
               <h3 className="font-serif text-[3.5rem] font-light text-[#c8a96e] leading-none">
                 {s.value}
               </h3>
-              <span className="text-[0.75rem] tracking-[0.15em] uppercase opacity-50 mt-2 block">
+              <span className="text-[0.75rem] tracking-[0.15em] uppercase text-[#f5f4f0]/50 mt-2 block">
                 {s.label}
               </span>
             </motion.div>
