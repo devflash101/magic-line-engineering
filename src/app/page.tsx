@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Work from "./components/Work";
 import About from "./components/About";
+import TeamSection from "./components/TeamSection";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero />
         <Work />
         <About />
+        <TeamSection />
         <Contact />
       </main>
       <Footer />
