@@ -2,6 +2,7 @@ export interface TeamMember {
   id: string;
   name: string;
   role: string;
+  workEmail?: string;
   image: string;
   location: string;
   licenses: string[];
@@ -14,6 +15,7 @@ export const leadershipTeam: TeamMember[] = [
     id: "ceo",
     name: "Raymond Liu",
     role: "CEO",
+    workEmail: "raymond.liu@magiclineeng.com",
     image: "/team/manager/CEO.jpg",
     location: "",
     licenses: [],
@@ -22,18 +24,20 @@ export const leadershipTeam: TeamMember[] = [
   },
   {
     id: "project-manager",
-    name: "Lance Fishburn",
+    name: "Franklin Lord",
     role: "Project Manager",
+    workEmail: "info@magiclineeng.com",
     image: "/team/manager/ProjectManager.jpg",
     location: "",
     licenses: [],
-    bio: "Lance Fishburn is the Project Manager at Magic Line, responsible for coordinating timelines, resources, and communication across active projects. He keeps teams aligned, clients informed, and milestones on track from planning through construction support. Lance is known for clear organization, responsive follow-through, and a practical approach that helps complex projects move forward smoothly.",
+    bio: "Franklin Lord is the Project Manager at Magic Line, responsible for coordinating timelines, resources, and communication across active projects. He keeps teams aligned, clients informed, and milestones on track from planning through construction support. Franklin is known for clear organization, responsive follow-through, and a practical approach that helps complex projects move forward smoothly.",
     tier: "manager",
   },
   {
     id: "financial-manager",
     name: "Salina Harper",
     role: "Financial Manager",
+    workEmail: "salina@magiclineeng.com",
     image: "/team/manager/FinancialManager.jpg",
     location: "",
     licenses: [],
