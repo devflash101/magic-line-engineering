@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { Mail, X } from "lucide-react";
 import type { TeamMember } from "@/lib/team";
 
 export default function TeamMemberModal({
@@ -81,6 +81,17 @@ export default function TeamMemberModal({
               {member.location && (
                 <p className="text-[0.75rem] tracking-wide opacity-50 mb-6">
                   {member.location}
+                </p>
+              )}
+              {member.workEmail && (
+                <p className="text-[0.75rem] tracking-wide mb-6 flex items-center gap-2">
+                  <Mail size={14} className="text-[#c8a96e]" />
+                  <a
+                    href={`mailto:${member.workEmail}`}
+                    className="text-[#c8a96e] hover:text-[#e3c98f] transition-colors"
+                  >
+                    {member.workEmail}
+                  </a>
                 </p>
               )}
 
