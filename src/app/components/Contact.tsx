@@ -6,7 +6,7 @@ import { MapPin, Mail, Phone } from "lucide-react";
 
 const details = [
   { icon: Mail, label: "Email", value: "info@magiclineeng.com" },
-  { icon: Phone, label: "Phone", value: "+1 (435) 341-0647" },
+  { icon: Phone, label: "Phone", value: "+1 (404) 369-1011" },
   {
     icon: MapPin,
     label: "Office",
