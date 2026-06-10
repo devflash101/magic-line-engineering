@@ -17,7 +17,7 @@ export default function Hero() {
       }}
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-10 md:gap-12 max-w-5xl text-[#0d0d0d] [text-shadow:0_1px_12px_rgba(255,255,255,0.85)]">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -29,7 +29,7 @@ export default function Hero() {
             priority
             className="w-[clamp(140px,20vw,240px)] h-auto drop-shadow-[0_4px_16px_rgba(13,13,13,0.12)]"
           />
-        </motion.div>
+        </motion.div> */}
 
         <div className="min-w-0">
           <motion.h1
