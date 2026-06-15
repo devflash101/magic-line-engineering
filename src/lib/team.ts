@@ -10,11 +10,20 @@ export interface TeamMember {
   role: string;
   workEmail?: string;
   image: string;
+  /** Bump when replacing the image file so browsers and Next.js serve the new photo. */
+  imageVersion?: number;
   location: string;
   licenses: string[];
   bio: string;
   bioSections?: TeamMemberBioSection[];
   tier: "ceo" | "manager" | "member";
+}
+
+export function getTeamMemberImageSrc(
+  member: Pick<TeamMember, "image" | "imageVersion">,
+): string {
+  if (!member.imageVersion) return member.image;
+  return `${member.image}?v=${member.imageVersion}`;
 }
 
 export const leadershipTeam: TeamMember[] = [
@@ -59,6 +68,7 @@ export const teamMembers: TeamMember[] = [
     name: "James Dallman",
     role: "Principal Architect",
     image: "/team/james-dallman.png",
+    imageVersion: 2,
     location: "Massachusetts & Wisconsin",
     licenses: [
       "Registered Architect — MA, WI",

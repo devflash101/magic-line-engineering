@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, X } from "lucide-react";
-import type { TeamMember } from "@/lib/team";
+import { getTeamMemberImageSrc, type TeamMember } from "@/lib/team";
 
 export default function TeamMemberModal({
   member,
@@ -51,7 +51,7 @@ export default function TeamMemberModal({
               /* Full portrait: panel height follows image, nothing cropped */
               <div className="flex justify-center bg-[#1a1a1a] shrink-0 md:rounded-l-2xl overflow-hidden">
                 <Image
-                  src={member.image}
+                  src={getTeamMemberImageSrc(member)}
                   alt={member.name}
                   width={420}
                   height={560}
@@ -64,7 +64,7 @@ export default function TeamMemberModal({
               /* Leadership: wide panel, cover fill */
               <div className="relative w-full md:w-[min(50%,560px)] md:min-w-[420px] h-[min(58vh,500px)] md:h-auto md:flex-shrink-0 md:self-stretch overflow-hidden bg-[#111] md:rounded-l-2xl">
                 <Image
-                  src={member.image}
+                  src={getTeamMemberImageSrc(member)}
                   alt={member.name}
                   fill
                   className="object-cover object-top rounded-t-2xl md:rounded-t-none md:rounded-l-2xl"

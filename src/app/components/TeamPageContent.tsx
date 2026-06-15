@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ceo, managers, type TeamMember } from "@/lib/team";
+import { ceo, managers, getTeamMemberImageSrc, type TeamMember } from "@/lib/team";
 import TeamMembersCarousel from "./TeamMembersCarousel";
 import TeamMemberModal from "./TeamMemberModal";
 
@@ -37,7 +37,7 @@ function LeadershipCard({
         }`}
       >
         <Image
-          src={member.image}
+          src={getTeamMemberImageSrc(member)}
           alt={member.name}
           fill
           className={`object-cover transition-transform duration-700 group-hover:scale-[1.03] ${

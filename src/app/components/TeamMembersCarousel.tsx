@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { teamMembers, type TeamMember } from "@/lib/team";
+import { teamMembers, getTeamMemberImageSrc, type TeamMember } from "@/lib/team";
 
 export default function TeamMembersCarousel({
   onSelect,
@@ -151,7 +151,7 @@ export default function TeamMembersCarousel({
         >
           <div className="relative w-[260px] h-[340px] overflow-hidden rounded-2xl mb-4">
             <Image
-              src={member.image}
+              src={getTeamMemberImageSrc(member)}
               alt={member.name}
               fill
               loading="lazy"
