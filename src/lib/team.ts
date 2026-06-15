@@ -1,3 +1,9 @@
+export interface TeamMemberBioSection {
+  title?: string;
+  paragraphs?: string[];
+  items?: string[];
+}
+
 export interface TeamMember {
   id: string;
   name: string;
@@ -7,6 +13,7 @@ export interface TeamMember {
   location: string;
   licenses: string[];
   bio: string;
+  bioSections?: TeamMemberBioSection[];
   tier: "ceo" | "manager" | "member";
 }
 
@@ -48,13 +55,49 @@ export const leadershipTeam: TeamMember[] = [
 
 export const teamMembers: TeamMember[] = [
   {
-    id: "james-anderson",
-    name: "James Anderson",
-    role: "Architect",
-    image: "/team/james-anderson.png",
-    location: "Multi-State",
-    licenses: ["Multi-State Licensed Architect"],
-    bio: "James Anderson is a multi-licensed architect specializing in residential, commercial, and mixed-use developments. With extensive experience in design, planning, permitting, and construction administration, he helps clients successfully navigate projects across multiple states and jurisdictions. His work is defined by thoughtful design, technical expertise, and a commitment to creating spaces that are functional, sustainable, and enduring.",
+    id: "james-dallman",
+    name: "James Dallman",
+    role: "Principal Architect",
+    image: "/team/james-dallman.png",
+    location: "Massachusetts & Wisconsin",
+    licenses: [
+      "Registered Architect — MA, WI",
+      "MArch — Harvard University Graduate School of Design",
+    ],
+    bio: "Award-winning architect, educator, and design leader with 25+ years of experience. Principal of LA DALLMAN Architects.",
+    bioSections: [
+      {
+        paragraphs: [
+          "James Dallman is an award-winning architect, educator, and design leader with more than 25 years of experience creating innovative architecture that integrates design excellence, engineering, and environmental responsibility.",
+        ],
+      },
+      {
+        title: "Practice",
+        paragraphs: [
+          "He is the Principal of LA DALLMAN Architects, an internationally recognized architecture practice with offices in Massachusetts and Wisconsin.",
+        ],
+      },
+      {
+        title: "Academic Leadership",
+        items: [
+          "Design Critic, Harvard University Graduate School of Design (Harvard GSD) — advanced architectural design studios",
+          "Design Critic, Rhode Island School of Design (RISD)",
+          "Former academic appointments, University of Wisconsin–Milwaukee",
+        ],
+      },
+      {
+        title: "Project Experience",
+        paragraphs: [
+          "Throughout his career, James has led a wide range of projects, including cultural institutions, residential developments, adaptive reuse, commercial buildings, and public spaces.",
+          "His work is widely recognized for its thoughtful integration of architecture, landscape, and structural systems, creating places that are both functional and inspiring.",
+        ],
+      },
+      {
+        paragraphs: [
+          "As a respected architect, educator, and design advocate, James continues to shape contemporary architecture through professional practice, academic leadership, and research focused on innovative and sustainable design solutions.",
+        ],
+      },
+    ],
     tier: "member",
   },
   {
