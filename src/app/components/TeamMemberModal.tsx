@@ -95,7 +95,41 @@ export default function TeamMemberModal({
                 </p>
               )}
 
-              <p className="text-sm leading-[1.8] opacity-70 mb-6">{member.bio}</p>
+              {member.bioSections ? (
+                <div className="space-y-5 mb-6">
+                  {member.bioSections.map((section, i) => (
+                    <div key={i}>
+                      {section.title && (
+                        <h4 className="text-[0.65rem] tracking-[0.2em] uppercase text-[#c8a96e]/70 mb-2.5">
+                          {section.title}
+                        </h4>
+                      )}
+                      {section.paragraphs?.map((paragraph, j) => (
+                        <p
+                          key={j}
+                          className="text-sm leading-[1.8] opacity-70 mb-3 last:mb-0"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                      {section.items && (
+                        <ul className="space-y-2">
+                          {section.items.map((item) => (
+                            <li
+                              key={item}
+                              className="text-sm leading-[1.7] opacity-70 pl-3 border-l border-[#c8a96e]/30"
+                            >
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm leading-[1.8] opacity-70 mb-6">{member.bio}</p>
+              )}
 
               {member.licenses.length > 0 && (
                 <div>
