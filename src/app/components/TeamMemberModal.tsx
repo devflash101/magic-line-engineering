@@ -1,9 +1,10 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, X } from "lucide-react";
-import type { TeamMember } from "@/lib/team";
+import { getTeamMemberImageSrc, type TeamMember } from "@/lib/team";
 
 export default function TeamMemberModal({
   member,
@@ -13,6 +14,37 @@ export default function TeamMemberModal({
   onClose: () => void;
 }) {
   const isMember = member?.tier === "member";
+  const imagePanelRef = useRef<HTMLDivElement>(null);
+  const [contentMaxHeight, setContentMaxHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!member) {
+      setContentMaxHeight(null);
+      return;
+    }
+
+    const panel = imagePanelRef.current;
+    if (!panel) return;
+
+    const syncHeight = () => {
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        setContentMaxHeight(panel.offsetHeight);
+      } else {
+        setContentMaxHeight(null);
+      }
+    };
+
+    syncHeight();
+
+    const observer = new ResizeObserver(syncHeight);
+    observer.observe(panel);
+    window.addEventListener("resize", syncHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", syncHeight);
+    };
+  }, [member]);
 
   return (
     <AnimatePresence>
@@ -31,10 +63,8 @@ export default function TeamMemberModal({
             exit={{ opacity: 0, scale: 0.92, y: 30 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className={`relative bg-[#1a1a1a] w-full max-h-[90vh] overflow-hidden rounded-2xl flex flex-col md:flex-row ${
-              isMember
-                ? "max-w-4xl md:items-stretch"
-                : "max-w-5xl md:items-stretch min-h-[min(85vh,640px)]"
+            className={`relative bg-[#1a1a1a] w-full max-h-[90vh] min-h-0 overflow-hidden rounded-2xl flex flex-col md:flex-row md:items-start ${
+              isMember ? "max-w-4xl" : "max-w-5xl"
             }`}
             style={{ scrollbarWidth: "thin", scrollbarColor: "#c8a96e33 transparent" }}
           >
@@ -47,33 +77,38 @@ export default function TeamMemberModal({
               <X size={20} />
             </button>
 
-            {isMember ? (
-              /* Full portrait: panel height follows image, nothing cropped */
-              <div className="flex justify-center bg-[#1a1a1a] shrink-0 md:rounded-l-2xl overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={420}
-                  height={560}
-                  className="block w-auto h-auto max-w-[min(100vw,420px)] max-h-[min(85vh,720px)] object-contain rounded-t-2xl md:rounded-t-none md:rounded-l-2xl"
-                  sizes="420px"
-                  priority
-                />
-              </div>
-            ) : (
-              /* Leadership: wide panel, cover fill */
-              <div className="relative w-full md:w-[min(50%,560px)] md:min-w-[420px] h-[min(58vh,500px)] md:h-auto md:flex-shrink-0 md:self-stretch overflow-hidden bg-[#111] md:rounded-l-2xl">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-top rounded-t-2xl md:rounded-t-none md:rounded-l-2xl"
-                  sizes="(max-width: 768px) 100vw, 560px"
-                />
-              </div>
-            )}
+            <div
+              ref={imagePanelRef}
+              className={`relative shrink-0 self-start w-full overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl ${
+                isMember ? "md:w-[min(42%,400px)]" : "md:w-[min(50%,460px)]"
+              }`}
+            >
+              <Image
+                src={getTeamMemberImageSrc(member)}
+                alt={member.name}
+                width={1023}
+                height={1537}
+                className="block w-full h-auto max-h-[min(45vh,380px)] md:max-h-[90vh]"
+                sizes={isMember ? "(max-width: 768px) 100vw, 400px" : "(max-width: 768px) 100vw, 460px"}
+                priority={isMember}
+                onLoad={() => {
+                  if (imagePanelRef.current) {
+                    setContentMaxHeight(
+                      window.matchMedia("(min-width: 768px)").matches
+                        ? imagePanelRef.current.offsetHeight
+                        : null,
+                    );
+                  }
+                }}
+              />
+            </div>
 
-            <div className="p-6 md:p-8 flex-1 min-w-0 text-[#f5f4f0] overflow-y-auto max-h-[50vh] md:max-h-[90vh]">
+            <div
+              className="p-6 md:p-8 flex-1 min-w-0 min-h-0 text-[#f5f4f0] overflow-y-auto overscroll-contain"
+              style={
+                contentMaxHeight ? { maxHeight: contentMaxHeight } : undefined
+              }
+            >
               <span className="text-[0.65rem] tracking-[0.25em] uppercase text-[#c8a96e] block mb-2">
                 {member.role}
               </span>
