@@ -40,13 +40,14 @@ export const leadershipTeam: TeamMember[] = [
   },
   {
     id: "project-manager",
-    name: "Franklin Lord",
+    name: "John Barilea",
     role: "Project Manager",
     workEmail: "info@magiclineeng.com",
-    image: "/team/manager/ProjectManager.jpg",
+    image: "/team/manager/ProjectManager.png",
+    imageVersion: 1,
     location: "",
     licenses: [],
-    bio: "Franklin Lord is the Project Manager at Magic Line, responsible for coordinating timelines, resources, and communication across active projects. He keeps teams aligned, clients informed, and milestones on track from planning through construction support. Franklin is known for clear organization, responsive follow-through, and a practical approach that helps complex projects move forward smoothly.",
+    bio: "John Barilea is the Project Manager at Magic Line, responsible for coordinating timelines, resources, and communication across active projects. He keeps teams aligned, clients informed, and milestones on track from planning through construction support. John is known for clear organization, responsive follow-through, and a practical approach that helps complex projects move forward smoothly.",
     tier: "manager",
   },
   {
