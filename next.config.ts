@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       {
         pathname: "/team/**",
       },
+      {
+        pathname: "/projects/**",
+      },
     ],
     remotePatterns: [
       {
