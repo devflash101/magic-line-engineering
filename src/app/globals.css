@@ -2,6 +2,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: only light;
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Inter', sans-serif;
   --accent: #c8a96e;
@@ -10,6 +11,7 @@
 }
 
 html {
+  color-scheme: only light;
   scroll-behavior: smooth;
 }
 
