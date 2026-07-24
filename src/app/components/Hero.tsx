@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Logo from "./Logo";
 
 export default function Hero() {
   return (
@@ -10,13 +9,14 @@ export default function Hero() {
       id="hero"
       className="relative h-screen flex items-start px-8 md:px-16 pt-[10vh] md:pt-[12vh] overflow-hidden"
       style={{
+        colorScheme: "only light",
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=85')",
+          "linear-gradient(to right, rgba(245,244,240,0.88) 0%, rgba(245,244,240,0.55) 42%, rgba(245,244,240,0.12) 72%, transparent 100%), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=85')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-10 md:gap-12 max-w-5xl text-[#0d0d0d] [text-shadow:0_1px_12px_rgba(255,255,255,0.85)]">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-10 md:gap-12 max-w-5xl text-[#0d0d0d]">
         {/* <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -36,12 +36,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
-            className="font-serif font-light leading-[1.08] mb-6"
+            className="font-serif font-light leading-[1.08] mb-6 text-[#0d0d0d]"
           >
-            <span className="block whitespace-nowrap text-[clamp(1.6rem,5.5vw,6rem)]">
+            <span className="block whitespace-nowrap text-[clamp(1.6rem,5.5vw,6rem)] text-[#0d0d0d]">
               Magic Line Engineering
             </span>
-            <span className="block mt-2 text-[clamp(1.35rem,3.2vw,2.5rem)] text-[#c8a96e] italic font-light tracking-wide">
+            <span className="block mt-2 text-[clamp(1.35rem,3.2vw,2.5rem)] text-[#8a7348] italic font-light tracking-wide">
               architecture &amp; structural &amp; mep
             </span>
           </motion.h1>
@@ -50,7 +50,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="text-base text-[#0d0d0d]/70 mb-10 tracking-wide"
+            className="text-base text-[#0d0d0d]/75 mb-10 tracking-wide"
           >
             We craft spaces that inspire, endure, and belong.
           </motion.p>

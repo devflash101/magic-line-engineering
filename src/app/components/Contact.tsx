@@ -2,17 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 
-const details = [
-  { icon: Mail, label: "Email", value: "info@magiclineeng.com" },
-  { icon: Phone, label: "Phone", value: "+1 (404) 369-1011" },
-  {
-    icon: MapPin,
-    label: "Office",
-    value: "1447 Peachtree St NE\nAtlanta, GA",
-  },
-];
+const CONTACT_EMAIL = "info@magiclineeng.com";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -44,18 +36,14 @@ export default function Contact() {
             We'd love to hear about your project. Reach out and let's talk.
           </p>
 
-          <div className="mt-10 flex flex-col gap-6">
-            {details.map(({ icon: Icon, label, value }) => (
-              <div key={label} className="flex items-start gap-4">
-                <Icon size={16} className="text-[#c8a96e] mt-1 shrink-0" />
-                <div>
-                  <span className="text-[0.68rem] tracking-[0.2em] uppercase text-[#c8a96e] block mb-1">
-                    {label}
-                  </span>
-                  <p className="text-sm whitespace-pre-line leading-relaxed">{value}</p>
-                </div>
-              </div>
-            ))}
+          <div className="mt-10 flex items-center gap-4">
+            <Mail size={16} className="text-[#c8a96e] shrink-0" />
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="text-[0.68rem] tracking-[0.2em] text-[#c8a96e] hover:opacity-80 transition-opacity duration-300"
+            >
+              {CONTACT_EMAIL}
+            </a>
           </div>
         </motion.div>
 
