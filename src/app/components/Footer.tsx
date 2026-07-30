@@ -8,11 +8,11 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0d0d0d] text-[#f5f4f0] px-16 py-10 flex justify-between items-center border-t border-white/5">
+    <footer className="bg-[#0d0d0d] text-[#f5f4f0] px-6 md:px-16 py-10 flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center text-center md:text-left border-t border-white/5">
       <p className="text-[0.75rem] opacity-40 tracking-wide">
-        © 2020 Magic Line Engineering. All rights reserved.
+        © 2020–{new Date().getFullYear()} Magic Line Engineering. All rights reserved.
       </p>
-      <div className="flex items-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         {links.map((link) => (
           <Link
             key={link.label}

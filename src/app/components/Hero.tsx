@@ -7,9 +7,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen flex items-start px-8 md:px-16 pt-[10vh] md:pt-[12vh] overflow-hidden"
+      className="relative min-h-screen flex items-start px-6 sm:px-8 md:px-16 pt-[14vh] md:pt-[12vh] pb-24 overflow-hidden"
       style={{
         colorScheme: "only light",
+        backgroundColor: "#f5f4f0",
         backgroundImage:
           "linear-gradient(to right, rgba(245,244,240,0.88) 0%, rgba(245,244,240,0.55) 42%, rgba(245,244,240,0.12) 72%, transparent 100%), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=85')",
         backgroundSize: "cover",
@@ -38,7 +39,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
             className="font-serif font-light leading-[1.08] mb-6 text-[#0d0d0d]"
           >
-            <span className="block whitespace-nowrap text-[clamp(1.6rem,5.5vw,6rem)] text-[#0d0d0d]">
+            <span className="block sm:whitespace-nowrap text-[clamp(1.6rem,5.5vw,6rem)] text-[#0d0d0d]">
               Magic Line Engineering
             </span>
             <span className="block mt-2 text-[clamp(1.35rem,3.2vw,2.5rem)] text-[#8a7348] italic font-light tracking-wide">
@@ -70,7 +71,10 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-10 right-16 flex flex-col items-center gap-3">
+      <div
+        aria-hidden
+        className="absolute bottom-8 right-6 md:bottom-10 md:right-16 flex flex-col items-center gap-3"
+      >
         <div className="w-px h-12 bg-[#0d0d0d]/30" />
         <span className="text-[0.65rem] tracking-[0.2em] uppercase text-[#0d0d0d]/50 [writing-mode:vertical-rl]">
           Scroll
